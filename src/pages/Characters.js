@@ -1,6 +1,6 @@
 import React from 'react';
 
-function NotFound() {
+function Characters() {
     return (
         <div>
 
@@ -8,4 +8,4 @@ function NotFound() {
     );
 }
 
-export default NotFound;
+export default Characters;
