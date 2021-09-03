@@ -4,7 +4,7 @@ import s from './Navigation.module.css';
 export default function Navigation() {
     return (
         <nav>
-            <NavLink to="/characters" exact className={s.link} activeClassName={s.activeLink}>
+            <NavLink to="/" exact className={s.link} activeClassName={s.activeLink}>
                 Characters
             </NavLink>
             <NavLink to="/episodes" className={s.link} activeClassName={s.activeLink}>

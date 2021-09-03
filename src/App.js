@@ -5,21 +5,21 @@ import Container from './components/container/Container';
 import AppBar from './components/appBar/AppBar'
 
 const Characters = lazy(() =>
-  import('./pages/Characters'),
+  import('./pages/characters/Characters'),
 );
 const Episodes = lazy(() =>
-  import('./pages/Episodes'),
+  import('./pages/episodes/Episodes'),
 );
 const NotFoundPage = lazy(() =>
   import('./pages/NotFound'),
 );
 const Locations = lazy(() =>
   import(
-    './pages/Locations'),
+    './pages/locations/Locations'),
 );
 const MyWatchList = lazy(() =>
   import(
-    './pages/MyWatchList'),
+    './pages/myWatchList/MyWatchList'),
 );
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
 
       <Suspense fallback={<Loader />}>
         <Switch>
-          <Route path="/characters" exact>
+          <Route path="/" exact>
             <Characters />
           </Route>
 
