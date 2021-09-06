@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import * as charactersAPI from '../../service/Service';
 import StatusError from '../../components/statusError/StatusError';
 import s from '../characters/Characters.module.css'

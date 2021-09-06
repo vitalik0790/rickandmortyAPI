@@ -10,7 +10,7 @@ export default function ImagePendingView() {
             width={80}
             style={{
                 display: 'block',
-                marginLeft: '600',
+                marginLeft: 560,
             }}
         />
     );
