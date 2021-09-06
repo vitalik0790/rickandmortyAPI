@@ -1,0 +1,22 @@
+.list {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding-left: 0;
+  width: 150px;
+}
+
+.btn {
+  padding: 8px 20px;
+  border-radius: 5px;
+  border: transparent;
+  cursor: pointer;
+  background-color: white;
+}
+
+.btn:hover {
+  color: #ffffff;
+
+  background-color: #ff6b08;
+}
