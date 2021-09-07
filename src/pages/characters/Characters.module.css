@@ -40,7 +40,8 @@
   color: rgb(2, 2, 2);
 }
 .about {
-  text-align: center;
+  padding-left: 7px;
+  padding-right: 7px;
 }
 
 .text {
@@ -50,5 +51,12 @@
   padding-left: 15px;
   padding-right: 15px;
   font-size: 16px;
+  font-weight: 700;
   color: #000;
+  text-align: center;
+}
+
+.info {
+  color: #000;
+  font-size: 12;
 }

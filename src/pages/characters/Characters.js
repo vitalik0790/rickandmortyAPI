@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-// import { useLocation } from 'react-router-dom';
-// import * as charactersAPI from '../../service/Service';
 import StatusError from '../../components/statusError/StatusError';
 import Pagination from '../../components/pagination/Pagination'
 import s from '../characters/Characters.module.css'
@@ -54,11 +52,12 @@ function Characters() {
                 <>
                     <ul className={s.ItemList}>
                         {characters.map(
-                            ({ id, name, image, }) => (
+                            ({ id, name, image, species }) => (
                                 <li className={s.ImageGalleryItem} key={id}>
                                     <img className={s.ImageGalleryItemImage} src={image} alt={name} />
                                     <div className={s.about}>
                                         <p className={s.text}>{name}</p>
+                                        <p className={s.info}>Species: {species}</p>
                                     </div>
                                 </li>
                             )
