@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import StatusError from '../../components/statusError/StatusError';
-import Pagination from '../../components/pagination/Pagination'
-import s from '../characters/Characters.module.css'
+import Pagination from '../../components/pagination/Pagination';
+import Filters from '../../components/filters/Filters'
+import s from '../characters/Characters.module.css';
 
-function Characters() {
+const Characters = () => {
     const [characters, setCharacters] = useState([]);
     const [error, setError] = useState(null);
     const [status, setStatus] = useState('idle');
@@ -32,12 +33,15 @@ function Characters() {
         fetchCharacters(info.next);
     };
 
+
     useEffect(() => {
         fetchCharacters(initialUrl);
     }, []);
 
+
     return (
         <div>
+            <Filters />
             <Pagination
                 prev={info.prev}
                 next={info.next}
@@ -52,12 +56,15 @@ function Characters() {
                 <>
                     <ul className={s.ItemList}>
                         {characters.map(
-                            ({ id, name, image, species }) => (
+                            ({ id, name, image, species, status, gender }) => (
                                 <li className={s.ImageGalleryItem} key={id}>
                                     <img className={s.ImageGalleryItemImage} src={image} alt={name} />
                                     <div className={s.about}>
                                         <p className={s.text}>{name}</p>
+                                        <hr />
                                         <p className={s.info}>Species: {species}</p>
+                                        <p className={s.info}>Gender: {gender}</p>
+                                        <p className={s.info}>Status: {status}</p>
                                     </div>
                                 </li>
                             )

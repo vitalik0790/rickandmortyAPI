@@ -1,0 +1,14 @@
+.fildset {
+  display: flex;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 12px;
+  justify-content: space-between;
+  width: 600px;
+  margin: 0 auto;
+  border-color: #ff6b08;
+}
+
+.filter {
+  margin-bottom: 30px;
+}
