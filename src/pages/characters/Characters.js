@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import StatusError from '../../components/statusError/StatusError';
-import Pagination from '../../components/pagination/Pagination';
+import Pagination from '../../UI/pagination/Pagination';
 import Filters from '../../components/filters/Filters'
 import s from '../characters/Characters.module.css';
 
@@ -8,7 +8,7 @@ const Characters = () => {
     const [characters, setCharacters] = useState([]);
     const [error, setError] = useState(null);
     const [status, setStatus] = useState('idle');
-    const [info, setInfo] = useState([]);
+    const [info, setInfo] = useState({});
 
     const initialUrl = "https://rickandmortyapi.com/api/character";
 
