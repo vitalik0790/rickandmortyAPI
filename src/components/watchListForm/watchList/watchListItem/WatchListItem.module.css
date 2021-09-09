@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 5px 0px 10px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.container:hover {
+  background-color: #f8f4fa;
+  border: 1px solid #a75ee1;
+  box-shadow: 5px 5px 8px -4px #ff6b08;
+  color: black;
+}
+
+.listItemName {
+  display: flex;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.listItemBtn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.listItemBtn:focus .listItemIcon,
+.listItemBtn:hover .listItemIcon {
+  fill: #2b180e;
+}
+
+.listItemIcon {
+  fill: #ff6b08;
+}
+
+.checkbox {
+  display: flex;
+  align-items: baseline;
+}

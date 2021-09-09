@@ -15,8 +15,8 @@ const WatchList = ({
                     <CSSTransition key={item.id} timeout={250} classNames="list-item">
                         <WatchListItem
                             item={item}
-                            deleteContact={deleteEpisode}
-                            getContactById={getEpisodeById}
+                            deleteEpisode={deleteEpisode}
+                            getEpisodeById={getEpisodeById}
                         />
                     </CSSTransition>
                 ))}

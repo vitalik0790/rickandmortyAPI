@@ -1,24 +1,28 @@
-
 import React from 'react';
+import s from './WatchListItem.module.css'
 
 const WatchListItem = ({
     item,
     deleteEpisode,
 }) => {
     return (
-        <>
+        <div className={s.container}>
             <div>
-                <h3 className="listItem_name">{item.name} </h3>
+                <input type="checkbox" id="complete" name="complete" />
+                <label for="complete">Complete</label>
+            </div>
+            <div className={s.checkbox}>
+                <h3 className={s.listItemName}>{item.name} </h3>
             </div>
             <div>
                 <button
                     type="button"
-                    className="material-icons listItem_btn"
+                    className={s.listItemBtn}
                     data-id={item.id}
                     onClick={deleteEpisode}
                 >
                     <svg
-                        className="listItem_icon"
+                        className={s.listItemIcon}
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         width="25px"
@@ -29,7 +33,7 @@ const WatchListItem = ({
                     </svg>
                 </button>
             </div>
-        </>
+        </div>
     );
 }
 

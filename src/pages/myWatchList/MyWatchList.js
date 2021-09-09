@@ -1,13 +1,16 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import WatchListForm from '../../components/watchListForm/WatchListForm';
+import WatchList from '../../components/watchListForm/watchList/WatchList';
+import FilterEpisodes from '../../components/filterEpisodes/FilterEpisodes';
+import Notifications from '../../components/notifications/Notifications'
+
 import { CSSTransition } from "react-transition-group";
 import s from './MyWatchList.module.css'
 
 const MyWatchList = () => {
-    const [episodes, setEpisodes] = useState([]);
     const [filter, setFilter] = useState("");
-    const [newEpisode, setNewEpisode] = useState(null);
+    const [episodes, setEpisodes] = useState([]);
     const [showNotice, setShowNotice] = useState(false);
     const [noticeMessage, setNoticeMessage] = useState('');
 
@@ -67,13 +70,73 @@ const MyWatchList = () => {
     return (
         <div>
             <CSSTransition
+                in={showNotice}
+                timeout={250}
+                classNames="my-notice"
+                unmountOnExit
+            >
+                <Notifications message={noticeMessage} />
+            </CSSTransition>
+
+            <CSSTransition
                 in={true}
                 appear={true}
                 timeout={500}
                 classNames={s}
+                unmountOnExit
             >
                 <h1 className={s.title}>My watch list</h1>
             </CSSTransition>
+
+            <CSSTransition
+                in={true}
+                appear={true}
+                timeout={400}
+                classNames="form"
+                unmountOnExit
+            >
+                <WatchListForm addEpisode={addEpisode} />
+            </CSSTransition>
+
+            <CSSTransition
+                in={true}
+                appear={true}
+                timeout={500}
+                classNames="contactsTitle"
+                unmountOnExit
+            >
+                <>
+                    <h2 className="contacts_title">Episodes</h2>
+                    {episodes.length >= 2 && (
+                        <CSSTransition
+                            in={true}
+                            appear={true}
+                            timeout={500}
+                            classNames="filter"
+                            unmountOnExit
+                        >
+                            <FilterEpisodes onChange={handleFilterInputChange} filter={filter} />
+                        </CSSTransition>
+                    )}
+                </>
+            </CSSTransition>
+
+            {episodes.length > 0 && (
+                <CSSTransition
+                    in={true}
+                    appear={true}
+                    timeout={550}
+                    classNames="contactsList"
+                    unmountOnExit
+                >
+                    <WatchList
+                        episodes={getFilteredEpisodes()}
+                        filter={filter}
+                        deleteEpisode={deleteEpisode}
+                        getEpisodeById={getEpisodeById}
+                    />
+                </CSSTransition>
+            )}
         </div>
     );
 }
