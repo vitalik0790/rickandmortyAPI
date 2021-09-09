@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import StatusError from '../../components/statusError/StatusError';
 import Pagination from '../../UI/pagination/Pagination';
-import Table from '../../UI/table/Table';
+import Table from '../../components/tables/TableForEpisodes';
 
 const Episodes = () => {
     const [episodes, setEpisodes] = useState([]);
