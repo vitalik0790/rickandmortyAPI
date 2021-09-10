@@ -9,7 +9,7 @@ const Characters = () => {
     const [error, setError] = useState(null);
     const [status, setStatus] = useState('idle');
     const [info, setInfo] = useState({});
-
+    const [ch_filters, setChFilters] = useState({});
     const initialUrl = "https://rickandmortyapi.com/api/character";
 
     const fetchCharacters = (url) => {
@@ -33,15 +33,22 @@ const Characters = () => {
         fetchCharacters(info.next);
     };
 
-
     useEffect(() => {
         fetchCharacters(initialUrl);
     }, []);
-
-
+    console.log("out of useEffect", ch_filters);
+    useEffect(() => {
+        console.log("Ch_filter", ch_filters);
+        let filter_url = initialUrl + "/?";
+        for (var key in ch_filters) {
+            filter_url += key + "=" + ch_filters[key] + "&";
+        }
+        filter_url = filter_url.substring(0, filter_url.length - 1);
+        fetchCharacters(filter_url);
+    }, [ch_filters])
     return (
         <div>
-            <Filters />
+            <Filters ch_filters={ch_filters} onChange={setChFilters} />
             <Pagination
                 prev={info.prev}
                 next={info.next}

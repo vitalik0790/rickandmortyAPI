@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import s from './WatchListItem.module.css'
 
 const WatchListItem = ({
+    checked,
     item,
     deleteEpisode,
+    onHandleChange
 }) => {
+    const [checked_in, setChecked] = useState(checked);
+
     return (
         <div className={s.container}>
-            <div>
-                <input type="checkbox" id="complete" name="complete" />
-                <label for="complete">Complete</label>
-            </div>
             <div className={s.checkbox}>
+                <input className={s.customCheckbox} type="checkbox" id="complete" name="complete" defaultChecked={checked_in} onChange={onHandleChange} />
+                <label htmlFor="complete">Completed</label>
+            </div>
+            <div>
                 <h3 className={s.listItemName}>{item.name} </h3>
             </div>
             <div>

@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import s from './Filters.module.css';
 
 
 const Filters = (props) => {
-
+    const [ch_filters, setChFilters] = useState(props.ch_filters);
     const onHandleChange = (e) => {
         const value = e.target.value;
-        console.log(value);
+        const name = e.target.name;
+        console.log(name, value);
+        // 
+        setChFilters({ ...ch_filters, [name]: value })
+        // ch_filters[name] = value;
+        console.log(ch_filters);
+        props.onChange(ch_filters);
     };
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Table.module.css'
-
+import dateFormat from "dateformat";
 export default function Table({ sortData, data }) {
 
     return (
@@ -32,7 +32,7 @@ export default function Table({ sortData, data }) {
                             {row.episode}
                         </td>
                         <td>
-                            {row.created}
+                            {dateFormat(row.created, "dd-mm-yyyy")}
                         </td>
                     </tr>))
                     }
