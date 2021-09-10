@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import s from './WatchListForm.module.css'
 
 
 const initialState = {
@@ -28,11 +29,11 @@ const WatchListForm = ({ addEpisode }) => {
     };
 
     return (
-        <form onSubmit={onHandelSubmit}>
-            <label className="form_fild">
-                <span className="form_text">Episode: </span>
+        <form className={s.form} onSubmit={onHandelSubmit}>
+            <label className={s.formFild}>
+                <span className={s.formText}>Episode: </span>
                 <input
-                    className="form_input"
+                    className={s.formInput}
                     placeholder="Enter episode..."
                     type="text"
                     name="name"
@@ -41,7 +42,7 @@ const WatchListForm = ({ addEpisode }) => {
                 ></input>
             </label>
 
-            <button className="form_btn" type="submit">
+            <button className={s.formBtn} type="submit">
                 Add episode
             </button>
         </form>

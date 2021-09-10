@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import WatchListItem from './watchListItem/WatchListItem'
+import WatchListItem from './watchListItem/WatchListItem';
+import s from './WatchList.module.css'
 
 
 const WatchList = ({
@@ -24,10 +25,19 @@ const WatchList = ({
     }, [checked])
 
     return (
-        <div>
-            <TransitionGroup component="ul" className="list">
+        <div className={s.container}>
+            <TransitionGroup component="ul" className={s.list}>
                 {episodes.map(item => (
-                    <CSSTransition key={item.id} timeout={250} classNames="list-item">
+                    <CSSTransition
+                        key={item.id}
+                        timeout={250}
+                        classNames={{
+                            enterActive: s["enter-active"],
+                            enterDone: s["enter"],
+                            exitDone: s["exit"],
+                            exitActive: s["exit-active"],
+                        }}
+                    >
                         <WatchListItem
                             checked={checked}
                             onHandleChange={onHandleChange}

@@ -68,11 +68,11 @@ const MyWatchList = () => {
     };
 
     return (
-        <div>
+        <div className={s.main}>
             <CSSTransition
                 in={showNotice}
                 timeout={250}
-                classNames="my-notice"
+                classNames={s.myNotice}
                 unmountOnExit
             >
                 <Notifications message={noticeMessage} />
@@ -82,10 +82,10 @@ const MyWatchList = () => {
                 in={true}
                 appear={true}
                 timeout={500}
-                classNames={s}
+                classNames={s.title}
                 unmountOnExit
             >
-                <h1 className={s.title}>My watch list</h1>
+                <h1 className={s.watchListTitle}>My watch list</h1>
             </CSSTransition>
 
             <CSSTransition
@@ -106,13 +106,13 @@ const MyWatchList = () => {
                 unmountOnExit
             >
                 <>
-                    <h2 className="contacts_title">Episodes</h2>
+                    <h2 className={s.episodesTitle}>Episodes</h2>
                     {episodes.length >= 2 && (
                         <CSSTransition
                             in={true}
                             appear={true}
                             timeout={500}
-                            classNames="filter"
+                            classNames={s.filter}
                             unmountOnExit
                         >
                             <FilterEpisodes onChange={handleFilterInputChange} filter={filter} />
@@ -126,7 +126,7 @@ const MyWatchList = () => {
                     in={true}
                     appear={true}
                     timeout={550}
-                    classNames="contactsList"
+                    classNames={s.episodesList}
                     unmountOnExit
                 >
                     <WatchList
@@ -135,6 +135,20 @@ const MyWatchList = () => {
                         deleteEpisode={deleteEpisode}
                         getEpisodeById={getEpisodeById}
                     />
+                </CSSTransition>
+            )}
+
+            {episodes.length === 0 && (
+                <CSSTransition
+                    in={true}
+                    appear={true}
+                    timeout={550}
+                    classNames="contactsText"
+                    unmountOnExit
+                >
+                    <p className="contacts_text">
+                        Your whatch list is empty. Please add an episode.
+                    </p>
                 </CSSTransition>
             )}
         </div>

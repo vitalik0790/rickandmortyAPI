@@ -36,16 +36,17 @@ const Characters = () => {
     useEffect(() => {
         fetchCharacters(initialUrl);
     }, []);
-    console.log("out of useEffect", ch_filters);
+
     useEffect(() => {
-        console.log("Ch_filter", ch_filters);
         let filter_url = initialUrl + "/?";
-        for (var key in ch_filters) {
+        for (const key in ch_filters) {
             filter_url += key + "=" + ch_filters[key] + "&";
         }
         filter_url = filter_url.substring(0, filter_url.length - 1);
         fetchCharacters(filter_url);
     }, [ch_filters])
+
+
     return (
         <div>
             <Filters ch_filters={ch_filters} onChange={setChFilters} />

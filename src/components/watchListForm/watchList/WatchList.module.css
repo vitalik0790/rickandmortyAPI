@@ -1,0 +1,22 @@
+.container {
+  padding: 10px 0;
+}
+
+.enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 250ms;
+}
+.enter {
+  opacity: 1;
+  transform: translateY(0);
+}
+.exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+.exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 250ms;
+}
