@@ -12,6 +12,17 @@ const Characters = () => {
     const [ch_filters, setChFilters] = useState({});
     const initialUrl = "https://rickandmortyapi.com/api/character";
 
+    const onHandleChange = (e) => {
+        const value = e.target.value;
+        const name = e.target.name;
+        console.log(name, value);
+        // 
+        setChFilters({ ch_filters, [name]: value })
+        // ch_filters[name] = value;
+        console.log(ch_filters);
+        // onChange(ch_filters);
+    };
+
     const fetchCharacters = (url) => {
         fetch(url)
             .then((response) => response.json())
@@ -42,14 +53,14 @@ const Characters = () => {
         for (const key in ch_filters) {
             filter_url += key + "=" + ch_filters[key] + "&";
         }
-        filter_url = filter_url.substring(0, filter_url.length - 1);
+        filter_url = filter_url.substring(0, filter_url.length);
         fetchCharacters(filter_url);
     }, [ch_filters])
 
 
     return (
         <div>
-            <Filters ch_filters={ch_filters} onChange={setChFilters} />
+            <Filters ch_filters={ch_filters} onChange={setChFilters} onHandleChange={onHandleChange} />
             <Pagination
                 prev={info.prev}
                 next={info.next}

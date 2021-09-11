@@ -1,20 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import s from './Filters.module.css';
 
 
 const Filters = (props) => {
-    const [ch_filters, setChFilters] = useState(props.ch_filters);
-    const onHandleChange = (e) => {
-        const value = e.target.value;
-        const name = e.target.name;
-        console.log(name, value);
-        // 
-        setChFilters({ ...ch_filters, [name]: value })
-        // ch_filters[name] = value;
-        console.log(ch_filters);
-        props.onChange(ch_filters);
-    };
-
 
     return (
         <div className={s.filter}>
@@ -26,7 +14,7 @@ const Filters = (props) => {
                             className={s.fieldset}
                             name="species"
                             id="species"
-                            onChange={onHandleChange}
+                            onChange={props.onHandleChange}
                         >
                             <option value="all">All</option>
                             <option value="human">Human</option>
@@ -45,7 +33,7 @@ const Filters = (props) => {
                             className={s.fieldset}
                             name="gender"
                             id="gender"
-                            onChange={onHandleChange}
+                            onChange={props.onHandleChange}
                         >
                             <option value="all">All</option>
                             <option value="male">Male</option>
@@ -61,7 +49,7 @@ const Filters = (props) => {
                             className={s.fieldset}
                             name="status"
                             id="status"
-                            onChange={onHandleChange}
+                            onChange={props.onHandleChange}
                         >
                             <option value="all">All</option>
                             <option value="alive">Alive</option>
