@@ -16,7 +16,7 @@ const Filters = (props) => {
                             id="species"
                             onChange={props.onHandleChange}
                         >
-                            <option value="all">All</option>
+                            {/* <option value="all">All</option> */}
                             <option value="human">Human</option>
                             <option value="alien">Alien</option>
                             <option value="humanoid">Humanoid</option>
@@ -35,7 +35,7 @@ const Filters = (props) => {
                             id="gender"
                             onChange={props.onHandleChange}
                         >
-                            <option value="all">All</option>
+                            {/* <option value="all">All</option> */}
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="genderless">Genderless</option>
@@ -51,7 +51,7 @@ const Filters = (props) => {
                             id="status"
                             onChange={props.onHandleChange}
                         >
-                            <option value="all">All</option>
+                            {/* <option value="all">All</option> */}
                             <option value="alive">Alive</option>
                             <option value="dead">Dead</option>
                             <option value="unknown">Unknown</option>

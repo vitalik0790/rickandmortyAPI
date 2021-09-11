@@ -13,14 +13,14 @@ const Characters = () => {
     const initialUrl = "https://rickandmortyapi.com/api/character";
 
     const onHandleChange = (e) => {
+        console.log(e)
         const value = e.target.value;
         const name = e.target.name;
         console.log(name, value);
         // 
-        setChFilters({ ch_filters, [name]: value })
+        setChFilters({ ...ch_filters, [name]: value })
         // ch_filters[name] = value;
         console.log(ch_filters);
-        console.log(characters)
         // onChange(ch_filters);
     };
 
@@ -31,6 +31,7 @@ const Characters = () => {
                 setCharacters(data.results);
                 setStatus('resolved');
                 setInfo(data.info);
+                console.log(data.results)
             })
             .catch(error => {
                 setError(error);
@@ -52,9 +53,9 @@ const Characters = () => {
     useEffect(() => {
         let filter_url = initialUrl + "/?";
         for (const key in ch_filters) {
-            filter_url += key + "=" + ch_filters[key] + "&" + key + "=" + ch_filters[key] + "&" + key + "=" + ch_filters[key] + "&";
+            filter_url += "&" + key + "=" + ch_filters[key] + "&" + key + "=" + ch_filters[key] + "&" + key + "=" + ch_filters[key] + "&";
         }
-        filter_url = filter_url.substring(0, filter_url.length);
+        filter_url = filter_url.substring(0, filter_url.length - 1);
         fetchCharacters(filter_url);
     }, [ch_filters])
 
