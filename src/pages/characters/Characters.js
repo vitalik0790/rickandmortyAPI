@@ -20,6 +20,7 @@ const Characters = () => {
         setChFilters({ ch_filters, [name]: value })
         // ch_filters[name] = value;
         console.log(ch_filters);
+        console.log(characters)
         // onChange(ch_filters);
     };
 
@@ -51,7 +52,7 @@ const Characters = () => {
     useEffect(() => {
         let filter_url = initialUrl + "/?";
         for (const key in ch_filters) {
-            filter_url += key + "=" + ch_filters[key] + "&";
+            filter_url += key + "=" + ch_filters[key] + "&" + key + "=" + ch_filters[key] + "&" + key + "=" + ch_filters[key] + "&";
         }
         filter_url = filter_url.substring(0, filter_url.length);
         fetchCharacters(filter_url);
