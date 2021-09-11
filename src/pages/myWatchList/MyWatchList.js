@@ -146,7 +146,7 @@ const MyWatchList = () => {
                     classNames="contactsText"
                     unmountOnExit
                 >
-                    <p className="contacts_text">
+                    <p className={s.contactsText}>
                         Your whatch list is empty. Please add an episode.
                     </p>
                 </CSSTransition>

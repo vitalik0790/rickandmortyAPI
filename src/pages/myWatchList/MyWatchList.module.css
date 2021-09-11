@@ -8,13 +8,19 @@
   margin-bottom: 30px;
   text-align: center;
 }
+
 .episodesTitle {
   color: #ff6b08;
   margin-bottom: 20px;
   text-align: center;
 }
+
 .episodesText {
   padding: 0 10px;
   text-align: center;
   color: #464b51;
+}
+
+.contactsText {
+  text-align: center;
 }
