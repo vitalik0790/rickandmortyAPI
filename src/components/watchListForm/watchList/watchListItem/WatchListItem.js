@@ -7,12 +7,19 @@ const WatchListItem = ({
     deleteEpisode,
     onHandleChange
 }) => {
-    const [checked_in, setChecked] = useState(checked);
+    const [checked_in] = useState(checked);
 
     return (
         <div className={s.container}>
             <div className={s.checkbox}>
-                <input className={s.customCheckbox} type="checkbox" id="complete" name="complete" defaultChecked={checked_in} onChange={onHandleChange} />
+                <input
+                    className={s.customCheckbox}
+                    type="checkbox"
+                    id="complete"
+                    name="complete"
+                    defaultChecked={checked_in}
+                    onChange={onHandleChange}
+                />
                 <label htmlFor="complete">Completed</label>
             </div>
             <div>

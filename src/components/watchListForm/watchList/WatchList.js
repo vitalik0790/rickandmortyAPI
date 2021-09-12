@@ -13,6 +13,7 @@ const WatchList = ({
 
     const onHandleChange = () => {
         setChecked(!checked)
+        console.log(checked)
     }
 
     useEffect(() => {
