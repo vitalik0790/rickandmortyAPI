@@ -60,10 +60,6 @@ const MyWatchList = () => {
         setFilter(e.target.value);
     };
 
-    const getEpisodeById = id => {
-        const episodeById = episodes.find(episode => episode.id === id);
-        setEpisodes({ ...episodeById });
-    };
     const onHandelSubmit = e => {
         e.preventDefault();
         addEpisode({
@@ -71,6 +67,7 @@ const MyWatchList = () => {
             name: episode,
             status: false
         });
+        setEpisode("");
     };
 
 
@@ -156,7 +153,6 @@ const MyWatchList = () => {
                         episodes={getFilteredEpisodes()}
                         filter={filter}
                         deleteEpisode={deleteEpisode}
-                        getEpisodeById={getEpisodeById}
                     />
                 </CSSTransition>
             )}
