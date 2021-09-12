@@ -1,19 +1,18 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import WatchListForm from '../../components/watchListForm/WatchListForm';
 import WatchList from '../../components/watchListForm/watchList/WatchList';
 import FilterEpisodes from '../../components/filterEpisodes/FilterEpisodes';
 import Notifications from '../../components/notifications/Notifications'
-
+import { v4 as uuidv4 } from 'uuid';
 import { CSSTransition } from "react-transition-group";
 import s from './MyWatchList.module.css'
-
+import s1 from '../../components/watchListForm/WatchListForm.module.css'
 const MyWatchList = () => {
     const [filter, setFilter] = useState("");
     const [episodes, setEpisodes] = useState([]);
     const [showNotice, setShowNotice] = useState(false);
     const [noticeMessage, setNoticeMessage] = useState('');
-
+    const [episode, setEpisode] = useState("");
     useEffect(() => {
         if (localStorage.getItem('episodes')) {
             const episodesFromLS = JSON.parse(localStorage.getItem('episodes'));
@@ -46,7 +45,6 @@ const MyWatchList = () => {
 
         setEpisodes(prevState => [...prevState, episode]);
     }
-
     const deleteEpisode = (e) => {
         const id = e.currentTarget.dataset.id;
         setEpisodes(prevState => [...prevState.filter(item => item.id !== id)]);
@@ -66,6 +64,15 @@ const MyWatchList = () => {
         const episodeById = episodes.find(episode => episode.id === id);
         setEpisodes({ ...episodeById });
     };
+    const onHandelSubmit = e => {
+        e.preventDefault();
+        addEpisode({
+            id: uuidv4(),
+            name: episode,
+            status: false
+        });
+    };
+
 
     return (
         <div className={s.main}>
@@ -95,7 +102,23 @@ const MyWatchList = () => {
                 classNames="form"
                 unmountOnExit
             >
-                <WatchListForm addEpisode={addEpisode} />
+                <form className={s1.form} onSubmit={onHandelSubmit}>
+                    <label className={s1.formFild}>
+                        <span className={s1.formText}>Episode: </span>
+                        <input
+                            className={s1.formInput}
+                            placeholder="Enter episode..."
+                            type="text"
+                            name="name"
+                            value={episode}
+                            onChange={(e) => setEpisode(e.target.value)}
+                        ></input>
+                    </label>
+
+                    <button className={s1.formBtn} type="submit">
+                        Add episode
+                    </button>
+                </form>
             </CSSTransition>
 
             <CSSTransition
