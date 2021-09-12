@@ -13,13 +13,9 @@ const Characters = () => {
     const initialUrl = "https://rickandmortyapi.com/api/character";
 
     const onHandleChange = (e) => {
-        console.log(e)
         const value = e.target.value;
         const name = e.target.name;
-        // console.log(name, value);
         setChFilters({ ...ch_filters, [name]: value })
-        // console.log(ch_filters);
-        // onChange(ch_filters);
     };
 
     const fetchCharacters = (url) => {
@@ -50,7 +46,8 @@ const Characters = () => {
     useEffect(() => {
         let filter_url = initialUrl + "/?";
         for (const key in ch_filters) {
-            filter_url += "&" + key + "=" + ch_filters[key] + "&" + key + "=" + ch_filters[key] + "&" + key + "=" + ch_filters[key] + "&";
+            if (ch_filters[key].localeCompare('all'))
+                filter_url += "&" + key + "=" + ch_filters[key] + "&";
         }
         filter_url = filter_url.substring(0, filter_url.length - 1);
         fetchCharacters(filter_url);
@@ -61,8 +58,8 @@ const Characters = () => {
         <div>
             <Filters ch_filters={ch_filters} onChange={setChFilters} onHandleChange={onHandleChange} />
             <Pagination
-                prev={info.prev}
-                next={info.next}
+                prev={info !== undefined ? info.prev : ""}
+                next={info !== undefined ? info.next : ""}
                 onPrev={onPrev}
                 onNext={onNext}
             />
@@ -73,7 +70,7 @@ const Characters = () => {
             {status === 'resolved' && (
                 <>
                     <ul className={s.ItemList}>
-                        {characters.map(
+                        {characters !== undefined ? characters.map(
                             ({ id, name, image, species, status, gender }) => (
                                 <li className={s.ImageGalleryItem} key={id}>
                                     <img className={s.ImageGalleryItemImage} src={image} alt={name} />
@@ -86,11 +83,11 @@ const Characters = () => {
                                     </div>
                                 </li>
                             )
-                        )}
+                        ) : ""}
                     </ul>
                     <Pagination
-                        prev={info.prev}
-                        next={info.next}
+                        prev={info !== undefined ? info.prev : ""}
+                        next={info !== undefined ? info.next : ""}
                         onPrev={onPrev}
                         onNext={onNext}
                     />
