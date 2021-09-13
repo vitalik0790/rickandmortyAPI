@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-
+import dateFormat from "dateformat";
 import { CSSTransition } from 'react-transition-group';
 import s from './Modal.module.css';
 
 const Modal = ({ action, character }) => {
-    const { name, status, species, gender, origin, image } = character;
+    const { name, status, species, gender, origin, created } = character;
     const [isOpen, setOpen] = useState(true);
     const onHadleClick = () => {
         setOpen(false);
@@ -29,14 +29,19 @@ const Modal = ({ action, character }) => {
             >
                 <div className={s.modal}>
                     <div>
-                        {/* <img className={s.ImageGalleryItemImage} src={image} alt={name} /> */}
+                        <h3 className={s.title}>Additional information about {name}</h3>
+                        <hr />
                         <div className={s.about}>
-                            <p className={s.text}>Name: {name}</p>
-                            {/* <hr /> */}
-                            <p className={s.info}>Species: {species}</p>
-                            <p className={s.info}>Gender: {gender}</p>
-                            <p className={s.info}>Status: {status}</p>
-                            <p className={s.info}>Origin: {origin}</p>
+                            {/* <p className={s.text}>Name: {name}</p> */}
+                            <p className={s.info}><span className={s.text}>Species:</span> {species}</p>
+                            <hr />
+                            <p className={s.info}><span className={s.text}>Gender:</span> {gender}</p>
+                            <hr />
+                            <p className={s.info}><span className={s.text}>Status:</span> {status}</p>
+                            <hr />
+                            <p className={s.info}><span className={s.text}>Origin:</span> {origin.name}</p>
+                            <hr />
+                            <p className={s.info}><span className={s.text}>Created:</span> {dateFormat(created, "dd-mm-yyyy")}</p>
                         </div>
                     </div>
                     <button className={s.modalBtn} onClick={onHadleClick} type="button">

@@ -14,8 +14,9 @@
 .modal {
   position: relative;
   background-color: #fff;
-  width: 600px;
-  height: 400px;
+  width: 500px;
+  /* height: 285px; */
+  padding: 0 10px 10px;
 }
 
 .modalIcon {
@@ -39,6 +40,7 @@
 .modalBtn:hover,
 .modalBtn:focus {
   outline: none;
+  fill: #7c41c5;
 }
 .modalBtn .modal_icon {
   fill: #7c41c5;
@@ -68,7 +70,7 @@
   margin-bottom: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   color: #000;
   text-align: center;
@@ -76,10 +78,15 @@
 
 .info {
   color: #000;
-  font-size: 12;
+  font-size: 14;
   margin: 0;
   padding-bottom: 5px;
   padding-left: 5px;
+}
+
+.title {
+  color: #000;
+  padding-left: 15px;
 }
 
 /* ================ animations =========== */
