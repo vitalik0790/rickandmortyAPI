@@ -44,6 +44,44 @@
   fill: #7c41c5;
 }
 
+.ImageGalleryItemImage {
+  width: 100%;
+  height: 260px;
+  border-radius: 5px;
+  object-fit: cover;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 5px;
+}
+.link {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(2, 2, 2);
+}
+.about {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.text {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+}
+
+.info {
+  color: #000;
+  font-size: 12;
+  margin: 0;
+  padding-bottom: 5px;
+  padding-left: 5px;
+}
+
 /* ================ animations =========== */
 .appear {
   opacity: 0;

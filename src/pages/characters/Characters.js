@@ -24,16 +24,17 @@ const Characters = () => {
         setChFilters({ ...ch_filters, [name]: value })
     };
 
-    const getCharacterById = id => {
-        const characterById = characters.find(character => character.id === id);
+    const getCharacterById = (id) => {
+        console.log(id)
+        console.log(characters)
+        const characterById = characters.find(item => item.id == id);
+        console.log(characterById)
         setCharacter({ ...characterById });
     };
 
     const openCharacterInfo = e => {
         setCharacterInfoOpen(true);
         const id = e.currentTarget.dataset.id;
-        console.log(id)
-
         getCharacterById(id);
     };
 
@@ -91,7 +92,7 @@ const Characters = () => {
                     <ul className={s.ItemList}>
                         {characters !== undefined ? characters.map(
                             ({ id, name, image, species, status, gender }) => (
-                                <li className={s.ImageGalleryItem} key={id} onClick={openCharacterInfo}>
+                                <li className={s.ImageGalleryItem} key={id} data-id={id} onClick={openCharacterInfo}>
                                     <img className={s.ImageGalleryItemImage} src={image} alt={name} />
                                     <div className={s.about}>
                                         <p className={s.text}>{name}</p>

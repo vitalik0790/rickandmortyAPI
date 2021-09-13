@@ -29,10 +29,10 @@ const Modal = ({ action, character }) => {
             >
                 <div className={s.modal}>
                     <div>
-                        <img className={s.ImageGalleryItemImage} src={image} alt={name} />
+                        {/* <img className={s.ImageGalleryItemImage} src={image} alt={name} /> */}
                         <div className={s.about}>
                             <p className={s.text}>Name: {name}</p>
-                            <hr />
+                            {/* <hr /> */}
                             <p className={s.info}>Species: {species}</p>
                             <p className={s.info}>Gender: {gender}</p>
                             <p className={s.info}>Status: {status}</p>
