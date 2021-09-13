@@ -6,13 +6,12 @@ import s1 from './watchListItem/WatchListItem.module.css';
 const WatchList = ({
     episodes,
     deleteEpisode,
-    getEpisodeById
 }) => {
     const [checked, setChecked] = useState(false);
 
     const onHandleChange = (item, event) => {
         item.status = event.target.checked;
-        var index = episodes.findIndex(p => p.id == item.id);
+        const index = episodes.findIndex(p => p.id === item.id);
         episodes[index] = item;
         localStorage.setItem('episodes', JSON.stringify(episodes));
     }
@@ -34,8 +33,8 @@ const WatchList = ({
                         key={item.id}
                         timeout={250}
                         classNames={{
-                            enterActive: s["enter-active"],
-                            enterDone: s["enter"],
+                            appearActive: s["appear-active"],
+                            appearDone: s["appear"],
                             exitDone: s["exit"],
                             exitActive: s["exit-active"],
                         }}
